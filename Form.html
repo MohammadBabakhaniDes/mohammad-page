@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		.div {
+			width: 51%;
+			margin: 10vw auto;
+			background-color: #efefef;
+			padding: 7vw;
+			border-radius: 90px 0 90px 0;
+			
+		}
+
+		.div h1 {
+			text-align: center;
+			margin-bottom: 70px;
+			border-bottom: 2px solid #d29511;
+			padding-bottom: 40px;
+			font-size: 250%;
+		}
+
+		form div {
+			margin-bottom: 50px;
+		}
+
+		html {
+			background: #b1b1b1;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		form label {
+			margin-bottom: 15px;
+			display: inline-block;
+			font-size: 97%;
+			font-weight: bold;
+		}
+
+		form input,
+		form select,
+		form textarea {
+			border: none;
+			width: 100%;
+			box-shadow: 2px 2px 5px 0 #1d1919;
+			padding: 12px;
+			padding-left: 55px;
+			background: no-repeat left center #fff;
+			border-radius: 5px;
+		}
+
+		.in1 {
+			background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUSKYhUvjIhNffpYqxyI7BGrMZuNKBCZbnQW58mE9uQ04l4z5s_E1wsqkQEbw2PxLN6dw&usqp=CAU);
+			background-size: 31px 31px;
+		}
+
+		.in2 {
+			background-image: url(https://icons.veryicon.com/png/o/miscellaneous/face-monochrome-icon/password-76.png);
+			background-size: 40px 35px;
+		}
+
+		.in3 {
+			background-image: url(https://icon-library.com/images/city-icon-png/city-icon-png-10.jpg);
+			background-size: 40px 35px;
+		}
+
+		.in4 {
+			background-image: url(data:image/png;base64,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);
+			background-size: 40px 35px;
+		}
+
+		.in5 {
+			background-image: url(https://icon-library.com/images/biography-icon/biography-icon-16.jpg);
+			background-size: 40px 35px;
+			background-position: left top;
+		}
+
+		.in6 {
+			background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHLdeQWcQ-p1iYHGq4eNx42d0WNwgfgooRSw&usqp=CAU);
+			background-size: 40px 35px;
+		}
+
+		#button {
+			text-align: center;
+		}
+
+		#button input,
+		button {
+			font-size: 1.5vw;
+			padding: 15px;
+			width: 30%;
+			margin: 20px;
+			border-radius: 5px;
+			background-color: #f4511e;
+			color: white;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			transition: all 0.5s;
+			box-shadow: none;
+		}
+
+		button span {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			transition: 0.5s;
+		}
+
+		button span::after {
+			content: '\00bb';
+			position: absolute;
+			top: 0;
+			right: -20px;
+			opacity: 0;
+			transition: 0.5s;
+		}
+
+		button:hover span {
+			padding-right: 25px;
+		}
+
+		button:hover span::after {
+			opacity: 1;
+			right: 0;
+		}
+
+		.pagination {
+			display: inline-block;
+		}
+
+		.pagination a {
+			color: black;
+			float: left;
+			padding: 8px 16px;
+			text-decoration: none;
+			border: 1px solid #ddd;
+		}
+
+		.pagination a.active {
+			background-color: #4CAF50;
+			color: white;
+			border: 1px solid #4CAF50;
+		}
+
+		.pagination a:hover:not(.active) {
+			background-color: #ddd;
+		}
+
+		.pagination a:first-child {
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		.pagination a:last-child {
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		@media only screen and (max-width: 1090px) {
+			.div {
+				width: 70%;
+				border-radius: 60px 0 60px 0;
+			}
+			label {
+				font-size: 80%;
+			}
+		}
+
+		@media only screen and (max-width: 750px) {
+			.div {
+				width: 95%;
+				border-radius: 40px 0 40px 0;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="div">
+		<h1>Form<span style="color: #d29511">Get</span></h1>
+		<form action="">
+			<div>
+				<label for="firstname">Full Name:</label>
+				<input class="in1" type="text" name="firstname" id="firstname" required placeholder="First Name">
+			</div>
+
+			<div>
+				<label for="password">Password:</label>
+				<input class="in2" id="password" type="password" name="password" placeholder="Password" />
+			</div>
+
+			<div>
+				<label>City:</label>
+				<select class="in3" name="city" id="city">
+					<option value="">(Select City)</option>
+					<option value="Bidgol">Bidgol</option>
+					<option value="Tehran">Tehran</option>
+					<option value="Shiraz">Shiraz</option>
+					<option value="Isfahan">Isfahan</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="email">Email:</label>
+				<input class="in4" type="email" name="email" id="email" placeholder="Email">
+			</div>
+
+			<div>
+				<label for="bio">Bio:</label>
+				<textarea class="in5" placeholder="your biographi is ....." name="bio" id="bio" cols="50"
+					rows="15"></textarea>
+			</div>
+
+			<div>
+				<label for="search">Search:</label>
+				<input class="in6" type="search" id="search" placeholder="Search" name="search" />
+			</div>
+
+			<div id="button">
+				<button><span>Submit</span></button>
+				<input class="reset" type="reset" value="Reset Form">
+			</div>
+		</form>
+	</div>
+
+	<div
+		style="width: 60%; margin: 0 auto; text-align: center; background: white; padding: 30px 0; border-radius: 8px; margin-bottom: 40px;">
+		<h2>Pagination with Rounded Borders</h2>
+		<div class="pagination">
+			<a href="#">&laquo;</a>
+			<a href="#">1</a>
+			<a class="active" href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">&raquo;</a>
+		</div>
+	</div>
+</body>
+
+</html>
