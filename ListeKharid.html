@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>لیست خرید</title>
+	<style>
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 150%;
+			background: #e1e1e1;
+		}
+
+		* {
+			overflow-x: hidden;
+		}
+
+		button,
+		input {
+			padding: 8px;
+			border-radius: 5px;
+			background: #f1f1f1;
+		}
+
+		button {
+			font-size: 15px;
+			flex: 25%;
+			margin: 5px;
+			background-color: #19279c;
+			color: #fff;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		input:focus {
+			background: #fff;
+		}
+
+		.sila {
+			border: 1px solid #a29090;
+			color: white;
+			text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+			width: 75%;
+			margin: 0 auto;
+			font-size: 2vw;
+			text-align: right;
+			font-weight: bold;
+			padding-right: 30px;
+			border-radius: 5px;
+			background-image: repeating-linear-gradient(45deg, red 0px, red 10px, red 10px, green 10px, green 20px);
+		}
+
+		#div {
+			background-image: linear-gradient(to right, red, black);
+			width: 50%;
+			/* media */
+			height: 350px;
+			margin: 0 auto;
+			text-align: right;
+			padding: 50px;
+			border: 1px solid #a29090;
+			border-radius: 10px;
+			margin-top: 100px;
+			color: #fff;
+			box-shadow: 5px 10px 10px 0 #111;
+		}
+
+		#voroodi {
+			flex: 75%;
+			margin: 5px;
+			/* media */
+		}
+
+		#todo-list {
+			/* media font */
+			padding: 0;
+			margin: 20px 0;
+			list-style: none;
+			padding-right: 40px;
+		}
+
+		@media only screen and (max-width:800px) {
+			#div {
+				width: 75%;
+			}
+
+			#div form {
+				flex-direction: column;
+			}
+
+			#todo-list {
+				font-size: 90%;
+			}
+
+			.sila {
+				font-size: 70%;
+				width: 90%;
+			}
+		}
+
+		@media only screen and (max-width:400px) {
+			#div {
+				width: 65%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="sila">
+		<p>در صورت اضافه کردن محصول خود را وارد کرده و روی دکمه اضافه کن ضربه بزنید </p>
+		<p>در صورت حذف کردن محصول روی استیکر ضربه بزنید</p>
+	</div>
+	<div id="div">
+		<h1>لیست خرید</h1>
+		<form style="display: flex;" dir="rtl">
+
+			<input dir="rtl" type="text" id="voroodi" placeholder="محصول مورد نظر خود را وارد کن">
+			<button onclick="addTodo(); return false;">اضافه کن</button>
+		</form>
+		<ul id="todo-list">
+
+		</ul>
+	</div>
+
+
+	<script>
+		var todoList = document.getElementById('todo-list');
+		var listeKharid = ["شیر", "موز", "هویج"];
+		var voroodi = document.getElementById('voroodi')
+
+		function addTodo() {
+			var value = voroodi.value;
+			listeKharid.push(value);
+			renderTodo();
+			voroodi.value = "";
+
+			if ((listeKharid.length) % 4 == 0) {
+				document.getElementById('div').style = "height:110%"
+			}
+
+		}
+
+		function deleteTodo(index) {
+			listeKharid.splice(index, 1);
+			renderTodo();
+		}
+
+		function renderTodo() {
+			todoList.innerHTML = "";
+			for (var i = 0; i < listeKharid.length; i++) {
+				todoList.innerHTML += '<li>' + listeKharid[i] + ' <a style="text-decoration:none;" href="#" onclick="deleteTodo(' + i + '); return false;">&#128546</a></li>';
+			}
+		}
+
+		renderTodo();
+
+
+	</script>
+</body>
+
+</html>
